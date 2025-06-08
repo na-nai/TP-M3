@@ -1,0 +1,13 @@
+library(tidyverse)
+
+BASE_RADIO <- read_csv("C:/Users/paaur/OneDrive/Escritorio/data/env_eph.csv")
+BASE_EST_PROD <- read_csv("C:/Users/paaur/OneDrive/Escritorio/data/distribucion_establecimientos_productivos_sexo.csv")
+BASE_VUL_SANIT <- read_csv("C:/Users/paaur/OneDrive/Escritorio/data/vuln_sanit.csv")
+BASE_CENSO <- read_csv("C:/Users/paaur/OneDrive/Escritorio/data/radios_hogar.csv")
+
+##########
+
+#Creando variable radio en la base que no la tenia 
+
+BASE_RADIO <- BASE_RADIO %>%
+  mutate("radio" = paste0(codprov, coddepto, frac2010, radio2010))
